@@ -38,9 +38,9 @@ print("\n")
 data_set_option = input("Please input the number of the option you want: ")
 #convert user input to an integer
 data_set_option = int(data_set_option)
-print("Data file chosen:", data_set_file_names[data_set_option - 1])
+csv_file_path = RAW_DATA_PATH + data_set_file_names[data_set_option - 1]
 
-
+file_handle = open(csv_file_path)
 
 
 
