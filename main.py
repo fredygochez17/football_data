@@ -7,11 +7,6 @@
 ############################ FUNCTIONS ##################################################
 #########################################################################################
 
-
-
-
-
-
 def load_data():
     # path to raw data from main.py directory (maybe make this a Global Constant later on?)
     RAW_DATA_PATH = "data/raw/fc_barcelona_24_25_champions_league_raw_csv_data/"
@@ -45,13 +40,24 @@ def load_data():
     # ask user to input the data set option they would like to access
     data_set_option = input("Please input the number of the option you want: ")
     #convert user input to an integer
-    data_set_option = int(data_set_option)
+    data_set_option = int(data_set_option) 
+    
+    # exclude options 5 and 11 for now. We'll handle those later
+    if data_set_option == 5 or data_set_option == 11:
+        print("Currenlty this program cannot process Options 5 or 11.\nPlease wait for future udpates and try a different option.")
+        data_set_option = input("Please input the number of the option you want (not option 5 or 11): ")
+        data_set_option = int(data_set_option) 
+        
+        # quit is option 5 or 11 gets inputed again
+        if data_set_option == 5 or data_set_option == 11:
+            print("program quit for not listening >:(")
+            quit()
+        
+        
     csv_file_path = RAW_DATA_PATH + data_set_file_names[data_set_option - 1]
 
     file_handle = open(csv_file_path)
     return file_handle
-
-
 
 
 
@@ -101,7 +107,14 @@ def load_data():
 
 # Load Data
 file_handle = load_data()
+print("File Handle:\n", file_handle)
 
+
+
+    
+###############################################################################
+############################ END OF MAIN SCRIPT ###############################
+###############################################################################
 
 
 
