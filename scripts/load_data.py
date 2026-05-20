@@ -1,9 +1,6 @@
-# this module (for now) returns the file handle depending on user inputs
+# this module returns data structure for data set selected based on user inputs
 
-
-
-
-
+import csv
 
 def load_data():
     # path to raw data from main.py directory (maybe make this a Global Constant later on?)
@@ -32,7 +29,7 @@ def load_data():
     # print options for data set access
     for file_name in data_set_file_names:
         print("Option", index, ":", file_name)
-        index = index + 1
+        index += 1
     print("\n")
 
     # ask user to input the data set option they would like to access
@@ -51,8 +48,21 @@ def load_data():
             print("program quit for not listening >:(")
             quit()
         
-        
+    
+    # open csv file_path    
     csv_file_path = RAW_DATA_PATH + data_set_file_names[data_set_option - 1]
-
     file_handle = open(csv_file_path)
-    return file_handle
+    
+    # create csv dictionary reader
+    csv_dict_reader = csv.DictReader(file_handle)
+    
+    # build nested dictionary: data[player name as row][stat label as column]
+    data = {}
+    for row in csv_dict_reader:
+        
+        # player name becomes the main key
+        player_name = row['Player']
+        data[player_name] = row
+        
+    
+    return data

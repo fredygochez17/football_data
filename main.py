@@ -2,14 +2,30 @@
 # load modules
 from scripts.load_data import load_data
 
+
+
+
+
+
+
 ###############################################################################
 ############################ MAIN SCRIPT ######################################
 ###############################################################################
 
 
 # Load Data
-file_handle = load_data()
-print("File Handle:\n", file_handle)
+data = load_data()
+#print(data['Raphinha']['Player'])
+
+print()
+for player in data:
+    #print(player)
+    #print(data[player].keys())
+    print("Available Stats:")
+    for stat in data[player]:
+        print(stat)
+    # only need from first player
+    break
 
 
     
