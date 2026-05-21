@@ -12,7 +12,7 @@ def load_data():
         "Defensive_Actions_2024-2025_Barcelona__Champions_League.csv"       ,          
         "Goal_and_Shot_Creation_2024-2025_Barcelona__Champions_League.csv"  ,
         "Goalkeeping_2024-2025_Barcelona__Champions_League.csv"             ,
-        "League_phase_Champions_League.csv"                                 ,   # Option 5
+        "League_phase_2024-2025__Champions_League.csv"                                 ,   # Option 5
         "Miscellaneous_Stats_2024-2025_Barcelona__Champions_League.csv"     ,
         "Pass_Types_2024-2025_Barcelona__Champions_League.csv"              ,
         "Passing_2024-2025_Barcelona__Champions_League.csv"                 ,
@@ -23,17 +23,20 @@ def load_data():
         "Standard_Stats_2024-2025_Barcelona__Champions_League.csv"              # Option 13
     ]
 
-    print("Which data set would you like to access?")
+    print("\nWhich data set from FC Barcelona's 24/25 Champions League Campaign would you like to access?\n")
     index = 1
 
     # print options for data set access
     for file_name in data_set_file_names:
-        print("Option", index, ":", file_name)
+        data_set = file_name.split('_')
+        data_set_print = data_set[:data_set.index('2024-2025')]
+        print("Option", index, ":", " ".join(data_set_print))
         index += 1
     print("\n")
 
     # ask user to input the data set option they would like to access
-    data_set_option = input("Please input the number of the option you want: ")
+    data_set_option = input("Input the integer of the option you want: ")
+    print()
     #convert user input to an integer
     data_set_option = int(data_set_option) 
     
