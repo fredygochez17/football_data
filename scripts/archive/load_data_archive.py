@@ -12,7 +12,7 @@ def load_data():
         "Defensive_Actions_2024-2025_Barcelona__Champions_League.csv"       ,          
         "Goal_and_Shot_Creation_2024-2025_Barcelona__Champions_League.csv"  ,
         "Goalkeeping_2024-2025_Barcelona__Champions_League.csv"             ,
-        "League_phase_2024-2025__Champions_League.csv"                                 ,   # Option 5
+        "League_phase_2024-2025__Champions_League.csv"                      ,   # Option 5
         "Miscellaneous_Stats_2024-2025_Barcelona__Champions_League.csv"     ,
         "Pass_Types_2024-2025_Barcelona__Champions_League.csv"              ,
         "Passing_2024-2025_Barcelona__Champions_League.csv"                 ,

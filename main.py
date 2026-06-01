@@ -1,7 +1,7 @@
 
 # load modules
-from scripts.load_data              import load_data
-from scripts.player_stat_output     import player_stat_output
+import time
+from scripts.process_user_inputs              import process_user_inputs
 
 
 
@@ -12,11 +12,23 @@ from scripts.player_stat_output     import player_stat_output
 ###############################################################################
 
 
-# Load Data
-data = load_data()
-
-# output player stat data based on user inputs
-player_stat_output(data)
+# keep the program going until user quits
+last_user_input = None
+while last_user_input != 'quit' :
+    
+    print()
+    time.sleep(0.1)
+    last_user_input = input('Your Input: ')
+    
+    if last_user_input == 'q' : last_user_input = 'quit'
+    if last_user_input == 'quit': 
+        print('Closing Program...')
+        time.sleep(0.5)
+        print()
+        time.sleep(0.1)
+        continue
+    
+    process_user_inputs(last_user_input)
 
 
     
