@@ -45,7 +45,7 @@ def print_valid_inputs():
     print('\t[data_file] -list stats')
     print('\t[data_file] -list players')
     print('\t[data_file]|[stat]|[player_name]')
-    print('\t[data_file]|[stat]| -list top [integer]')
+    print('\t[data_file]|[stat]|-list top [integer]')
     print('\t[data_file]|[stat]|[player_name_1], [palyer_name_2] -compare')
     
     print()
@@ -102,17 +102,23 @@ def load_data_file(file_name):
 
 def print_stat_list(data):
     print()
+    time.sleep(.25)
+    
     for player in data:
         for stat in data[player]:
             print(stat)
+            time.sleep(0.05)
         
         print()
         break
     
 def print_player_list(data):
     print()
+    time.sleep(.25)
+    
     for player in data:
         print(player)
+        time.sleep(0.05)
         
 
 def print_input_error_message():
@@ -158,6 +164,31 @@ def process_user_inputs(input):
                 print_player_list(data)
             
         else: print_input_error_message()
+    elif '|' in input :
+        # split by '|'
+        input_split = input.split('|')
+        
+        # process data file argument
+        DATA_FILE_ARG_INDEX  = 0
+        input_split[DATA_FILE_ARG_INDEX] = input_split[DATA_FILE_ARG_INDEX].strip()
+        
+        # load data file
+        data = load_data_file(input_split[DATA_FILE_ARG_INDEX])
+        
+        if '-' not in input :
+            STAT_ARG_INDEX   = 1
+            PLAYER_ARG_INDEX = 2
+            
+            stat_column = input_split[STAT_ARG_INDEX].strip()
+            player_row  = input_split[PLAYER_ARG_INDEX].strip()
+            
+            print(player_row, '-', stat_column, ':', data[player_row][stat_column])
+        #elif '-' in input :
+            #if 'list top' in input :
+                
+            
+            #elif 'compare' in input :
+        
     else:
         print_input_error_message()
     
