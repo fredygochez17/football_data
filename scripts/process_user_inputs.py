@@ -55,9 +55,9 @@ def print_valid_inputs():
 def print_data_files():
     
     print()
-    time.sleep(1)
-    print('Available data files:')
     time.sleep(0.5)
+    print('Available data files:')
+    time.sleep(0.25)
     
     for data_file_name in DATA_FILE_NAMES:
         
@@ -66,7 +66,7 @@ def print_data_files():
         data_file_name = data_file_name[:data_file_name.index('2024-2025')]
         
         # print formatted file name
-        time.sleep(0.15)
+        time.sleep(0.05)
         print('\t', " ".join(data_file_name))
         
 
@@ -108,6 +108,11 @@ def print_stat_list(data):
         
         print()
         break
+    
+def print_player_list(data):
+    print()
+    for player in data:
+        print(player)
         
 
 def print_input_error_message():
@@ -138,18 +143,20 @@ def process_user_inputs(input):
     elif '-list' in input and '|' not in input:
         if '-list data files' in input:
             print_data_files()
-        elif '-list stats' in input:
+        elif '-list stats' in input or '-list players' in input:
+            # process file_name from user input
             input = input.split('-')
             file_name = input[0].strip()
             
             # load data
             data = load_data_file(file_name)
             
-            # print stat list
-            print_stat_list(data)
+            if 'list stats' in input:
+                # print stat list
+                print_stat_list(data)
+            else: # print player list
+                print_player_list(data)
             
-        elif '-list players' in input:
-            print(input)
         else: print_input_error_message()
     else:
         print_input_error_message()
