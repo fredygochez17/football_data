@@ -19,6 +19,7 @@ while last_user_input != 'quit' :
     print()
     time.sleep(0.1)
     last_user_input = input('Your Input: ')
+    print()
     
     if last_user_input == 'q' : last_user_input = 'quit'
     if last_user_input == 'quit': 
