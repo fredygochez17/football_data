@@ -52,7 +52,7 @@ def print_valid_inputs():
     print('\t[data_file] -list players')
     print('\t[data_file]|[stat]|[player_name]')
     print('\t[data_file]|[stat]|-list top [integer]')
-    print('\t[data_file]|[stat]|[player_name_1], [palyer_name_2] -compare')
+    print('\t[data_file]|[stat]|[player_name_1], [palyer_name_2] -compare stats')
     
     print()
     
@@ -215,8 +215,26 @@ def process_user_inputs(input):
                 print(player,':\t', player_dict_desc[player], sep="")
                 count += 1
                 if count >= player_arg_int : break
-        elif '-compare' in input : 
-            print('compare')
+        elif '-compare stats' in input : 
+            # load data file
+            input_split = input.split('|')
+            file_name   = input_split[FILE_INPUT_ARG_INDEX].strip()
+            data = load_data_file(file_name)
+            
+            # get stat from user input
+            stat_arg = input_split[STAT_INPUT_ARG_INDEX].strip()
+            
+            # get player names from player argument
+            player_args = input_split[PLAYER_ARG_INT_INDEX].strip().split('-')
+            players = player_args[0].split(',')
+            player_1 = players[0].strip()
+            player_2 = players[1].strip()
+            
+            # output data
+            print(player_1,'|', player_2)
+            print(stat_arg,':', data[player_1][stat_arg], '|', data[player_2][stat_arg])
+            
+            
         else: # user input: [data_file]|[stat]|[player_name]
             # retrieve file name from user input
             input_split = input.split('|')
