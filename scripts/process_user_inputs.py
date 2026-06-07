@@ -1,18 +1,8 @@
-# no checks for bad input just yet, 
-# program assumes perfect inputs from user
-# possible user inputs: 
-#       help
-#       data files -list
-#       [data_file] -list stats
-#       [data_file] -list players
-#       [data_file]|[stat]|[player_name]
-#       [data_file]|[stat]| -list top [integer]
-#       [data_file]|[stat]|[player_name_1], [palyer_name_2] -compare
-
-
-
 import time
 import csv
+
+from scripts.print_utilities import print_valid_inputs, print_input_error_message, \
+                                    print_data_files, print_player_list, print_stat_list
 
 
 
@@ -40,41 +30,7 @@ PLAYER_ARG_INT_INDEX    = 2     # index to find the integer in player argument a
 
 
 
-################################### HELPER FUNCTIONS ###################################
-def print_valid_inputs():
-    
-    print()
-    time.sleep(0.5)
-    
-    print('list of valid inputs (mind syntax):')
-    print('\t-list data files')
-    print('\t[data_file] -list stats')
-    print('\t[data_file] -list players')
-    print('\t[data_file]|[stat]|[player_name]')
-    print('\t[data_file]|[stat]|-list top [integer]')
-    print('\t[data_file]|[stat]|[player_name_1], [palyer_name_2] -compare stats')
-    
-    print()
-    
-
-
-def print_data_files():
-    
-    print()
-    time.sleep(0.5)
-    print('Available data files:')
-    time.sleep(0.25)
-    
-    for data_file_name in DATA_FILE_NAMES:
-        
-        # format data file name
-        data_file_name = data_file_name.split('_')
-        data_file_name = data_file_name[:data_file_name.index('2024-2025')]
-        
-        # print formatted file name
-        time.sleep(0.05)
-        print('\t', " ".join(data_file_name))
-        
+################################### HELPER FUNCTIONS ###################################        
 
 def load_data_file(file_name): 
     
@@ -111,32 +67,9 @@ def load_data_file(file_name):
     return data
 
 
-def print_stat_list(data):
-    print()
-    time.sleep(.25)
-    
-    for player in data:
-        for stat in data[player]:
-            print(stat)
-            time.sleep(0.05)
-        
-        print()
-        break
-    
-def print_player_list(data):
-    print()
-    time.sleep(.25)
-    
-    for player in data:
-        print(player)
-        time.sleep(0.05)
-        
 
-def print_input_error_message():
-    
-    print('One or more bad inputs (check syntax)')
-    print("Try 'help' for a list of valid inputs or 'quit' to exit program")
-    print()
+
+
 
 ################################### HELPER FUNCTIONS ####################################
 
@@ -233,8 +166,6 @@ def process_user_inputs(input):
             # output data
             print(player_1,'|', player_2)
             print(stat_arg,':', data[player_1][stat_arg], '|', data[player_2][stat_arg])
-            
-            
         else: # user input: [data_file]|[stat]|[player_name]
             # retrieve file name from user input
             input_split = input.split('|')
