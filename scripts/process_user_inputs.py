@@ -93,6 +93,46 @@ def top_n_stat_list(user_input):
         print(player,':\t', player_dict_desc[player], sep="")
         count += 1
         if count >= player_arg_int : break
+        
+def player_stat_compare(user_input):
+    # split user input by vertical bar and strip whitespace of each string item in the list.
+    user_input_split_vert_bar = user_input.split('|')
+    user_input_split_vert_bar = strip_list_whitespace(user_input_split_vert_bar) 
+    
+    # retrieve file name from first argument from user input and load data
+    file_name = user_input_split_vert_bar[FILE_INPUT_ARG_INDEX].strip()
+    data = load_data_file(file_name)
+    
+    # retrieve list of stats from second argument of user input
+    stat_arg_list = user_input_split_vert_bar[STAT_INPUT_ARG_INDEX]
+    stat_arg_list = stat_arg_list.split(",")
+    stat_arg_list = strip_list_whitespace(stat_arg_list)
+    
+    # retrieve list of players from third argument of user input
+    player_arg_list = user_input_split_vert_bar[PLAYER_ARG_INT_INDEX]
+    player_arg_list = player_arg_list.split(",")
+    player_arg_list = strip_list_whitespace(player_arg_list)
+    print(" | ".join(player_arg_list))
+    
+    # print stats for each player
+    for stat in stat_arg_list : 
+        print(stat, ": ", sep="", end="")
+        stat_list = list()
+        for player in player_arg_list :
+            stat_list.append(data[player][stat])
+        print(" | ".join(stat_list))
+
+def strip_list_whitespace(list_input_arg):
+    
+    # strip the left and right whitespace from each item in a list of strings and return the modified list. 
+    
+    count = 0
+    for item in list_input_arg:
+        list_input_arg[count] = item.strip()
+        count += 1
+        
+    return list_input_arg
+        
 
 ################################### HELPER FUNCTIONS ####################################
 
@@ -141,17 +181,7 @@ def process_user_inputs(input):
             print(player_1,'|', player_2)
             print(stat_arg,':', data[player_1][stat_arg], '|', data[player_2][stat_arg])
         else: # user input: [data_file]|[stat]|[player_name]
-            # retrieve file name from user input
-            input_split = input.split('|')
-            file_name   = input_split[FILE_INPUT_ARG_INDEX].strip()
-            
-            # load csv data from file
-            data = load_data_file(file_name)
-            
-            # output stat-player from user input
-            stat_column = input_split[STAT_INPUT_ARG_INDEX].strip()
-            player_row  = input_split[PLAYER_INPUT_ARG_INDEX].strip()
-            print(player_row, ' - ', stat_column, ': ', data[player_row][stat_column], sep="")
+            player_stat_compare(input)
     else : 
         print_input_error_message()
     
