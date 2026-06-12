@@ -1,0 +1,9 @@
+ACTION ITEMS
+
+
+> Configure Input and Output text files 
+    - this will help for testing program after making changes
+
+> User Friendliness
+    - make input arguments NOT case sensitive
+        -make input arg order not matter (later on)
