@@ -1,7 +1,6 @@
 import time
 
 from scripts.constants import DATA_FILE_NAMES
-from scripts.constants import RAW_DATA_PATH
 
 
 # output for "help" input from user
@@ -20,9 +19,9 @@ def print_valid_inputs():
     time.sleep(0.05)
     print('\t[data_file]|[stat]|[player_name]')
     time.sleep(0.05)
-    print('\t[data_file]|[stat]|-list top [integer]')
+    print('\t[data_file]|[stat_1],[stat_2],...,[stat_n]|[player_1],[player_2],...,[player_n]')
     time.sleep(0.05)
-    print('\t[data_file]|[stat]|[player_name_1], [palyer_name_2] -compare stats')
+    print('\t[data_file]|[stat]|-list top [integer]')
     time.sleep(0.05)
     
     print()
