@@ -1,0 +1,92 @@
+
+Input: -list data files
+
+Available data files:
+	 Advanced Goalkeeping
+	 Defensive Actions
+	 Goal and Shot Creation
+	 Goalkeeping
+	 Miscellaneous Stats
+	 Pass Types
+	 Passing
+	 Playing Time
+	 Possession
+	 Shooting
+	 Standard Stats
+
+Input: Shooting -list players
+
+Raphinha
+Pedri
+Jules Koundé
+Lamine Yamal
+Pau Cubarsí
+Robert Lewandowski
+Iñigo Martínez
+Alejandro Balde
+Frenkie de Jong
+Wojciech Szczęsny
+Marc Casado
+Dani Olmo
+Iñaki Peña
+Gerard Martín
+Ronald Araújo
+Fermin López
+Ferrán Torres
+Gavi
+Eric García
+Marc-André ter Stegen
+Pau Victor Delgado
+Héctor Fort
+Ansu Fati
+Sergi Dominguez
+Pablo Torre
+Andreas Christensen
+Andres Cuenca
+
+Input: Shooting -list stats
+
+Player
+Nation
+Position
+Current age
+90s Played
+Goals
+Shots Total
+Shots on Target
+Shots on Target %
+Shots Total/90
+Shots on target/90
+Goals/Shot
+Goals/Shot on Target
+Average Shot Distance
+Shots from Free Kicks
+Penalty Kicks Made
+Penalty Kicks Attempted
+xG: Expected Goals
+npxG: Non-Penalty xG
+npxG/Shot
+Goals - xG
+Non-Penalty Goals - npxG
+Matches
+
+
+Input: Shooting | Shots Total, Shots on Target,xG: Expected Goals, Goals | Robert Lewandowski, Raphinha, Lamine Yamal, Ferrán Torres
+
+Robert Lewandowski | Raphinha | Lamine Yamal | Ferrán Torres
+
+Shots Total: 30 | 51 | 53 | 14
+Shots on Target: 15 | 21 | 24 | 6
+xG: Expected Goals: 10.4 | 5.9 | 4.2 | 3.0
+Goals: 11 | 13 | 5 | 3
+
+Input: Passing | Passes Completed | -list top 5
+Pedri:	814.0
+Pau Cubarsí:	806.0
+Iñigo Martínez:	778.0
+Jules Koundé:	707.0
+Frenkie de Jong:	669.0
+
+Input: quit
+Closing Program...
+

@@ -1,4 +1,7 @@
+help
 -list data files
 Shooting -list players
-Shooting | Goals | Raphinha
+Shooting -list stats
+Shooting | Shots Total, Shots on Target, xG: Expected Goals, Goals | Robert Lewandowski, Raphinha, Lamine Yamal, Ferrán Torres
+Passing | Passes Completed | -list top 5
 quit
