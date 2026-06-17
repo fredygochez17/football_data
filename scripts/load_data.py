@@ -12,7 +12,11 @@ def load_data_file(file_name):
     
     # find DATA_FILE_NAMES index for which file_name exists
     for name in DATA_FILE_NAMES:
-        if file_name in name:
+        # normalize file names for comparison
+        file_name_lower = file_name.lower()
+        name_lower = name.lower()
+        
+        if file_name_lower in name_lower :
             file_name = name
             break
     

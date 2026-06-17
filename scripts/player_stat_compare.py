@@ -32,13 +32,21 @@ PLAYER_ARG_INT_INDEX    = 2     # index to find the integer in player argument a
 def strip_list_whitespace(list_input_arg):
     
     # strip the left and right whitespace from each item in a list of strings and return the modified list. 
-    
     count = 0
     for item in list_input_arg:
         list_input_arg[count] = item.strip()
         count += 1
         
     return list_input_arg
+
+def print_stat_player_lists(data, stat_list_input, player_list_input):
+    for stat in stat_list_input : 
+        print(stat, ": ", sep="", end="")
+        stat_list = list()
+        for player in player_list_input :
+            stat_list.append(data[player][stat])
+        print(" | ".join(stat_list))
+    
 
 ################################ END OF HELPER FUNCTIONS ################################### 
 
@@ -76,11 +84,6 @@ def player_stat_compare(user_input):
     print()
     
     # print stats for each player
-    for stat in stat_arg_list : 
-        print(stat, ": ", sep="", end="")
-        stat_list = list()
-        for player in player_arg_list :
-            stat_list.append(data[player][stat])
-        print(" | ".join(stat_list))
+    print_stat_player_lists(data, stat_arg_list, player_arg_list)
         
 ################################## END MAIN SCRIPT ################################################

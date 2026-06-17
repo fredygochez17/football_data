@@ -1,0 +1,77 @@
+
+Input: Shooting -list players
+
+Raphinha
+Pedri
+Jules Koundé
+Lamine Yamal
+Pau Cubarsí
+Robert Lewandowski
+Iñigo Martínez
+Alejandro Balde
+Frenkie de Jong
+Wojciech Szczęsny
+Marc Casado
+Dani Olmo
+Iñaki Peña
+Gerard Martín
+Ronald Araújo
+Fermin López
+Ferrán Torres
+Gavi
+Eric García
+Marc-André ter Stegen
+Pau Victor Delgado
+Héctor Fort
+Ansu Fati
+Sergi Dominguez
+Pablo Torre
+Andreas Christensen
+Andres Cuenca
+
+Input: Shooting -list stats
+
+Player
+Nation
+Position
+Current age
+90s Played
+Goals
+Shots Total
+Shots on Target
+Shots on Target %
+Shots Total/90
+Shots on target/90
+Goals/Shot
+Goals/Shot on Target
+Average Shot Distance
+Shots from Free Kicks
+Penalty Kicks Made
+Penalty Kicks Attempted
+xG: Expected Goals
+npxG: Non-Penalty xG
+npxG/Shot
+Goals - xG
+Non-Penalty Goals - npxG
+Matches
+
+
+Input: Shooting | Goals | Raphinha
+
+Raphinha
+
+Goals: 13
+
+Input: Shooting | Position, Current age, Shots Total, Shots on Target, Goals | Raphinha, Lamine Yamal, Robert Lewandowski 
+
+Raphinha | Lamine Yamal | Robert Lewandowski
+
+Position: FW,MF | FW | FW
+Current age: 28-144 | 17-298 | 36-259
+Shots Total: 51 | 53 | 30
+Shots on Target: 21 | 24 | 15
+Goals: 13 | 5 | 11
+
+Input: quit
+Closing Program...
+
