@@ -48,7 +48,7 @@ def top_n_stat_list(user_input):
     count = 0
     for player in player_dict_desc : 
         time.sleep(0.05)
-        print(player,':\t', player_dict_desc[player], sep="")
+        print(player,':\t', f"{player_dict_desc[player]:g}", sep="")
         count += 1
         if count >= player_arg_int : break
         

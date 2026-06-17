@@ -47,7 +47,20 @@ def print_stat_player_lists(data, stat_list_input, player_list_input):
             stat_list.append(data[player][stat])
         print(" | ".join(stat_list))
     
+def get_player_list(data):
+    player_list = list()
+    for player in data : 
+        player_list.append(player)
+    return player_list
 
+def get_stat_list(data):
+    stat_list = list()
+    for player in data : 
+        for stat in data[player] : 
+            stat_list.append(stat)
+        break
+    return stat_list
+    
 ################################ END OF HELPER FUNCTIONS ################################### 
 
 
@@ -75,10 +88,17 @@ def player_stat_compare(user_input):
     stat_arg_list = stat_arg_list.split(",")
     stat_arg_list = strip_list_whitespace(stat_arg_list)
     
+    if 'all stats' in stat_arg_list[0].lower() :
+        stat_arg_list = get_stat_list(data)
+    
     # retrieve list of players from third argument of user input
     player_arg_list = user_input_split_vert_bar[PLAYER_ARG_INT_INDEX]
     player_arg_list = player_arg_list.split(",")
     player_arg_list = strip_list_whitespace(player_arg_list)
+    
+    if 'all players' in player_arg_list[0].lower() :
+        player_arg_list = get_player_list(data)
+    
     print()
     print(" | ".join(player_arg_list))
     print()

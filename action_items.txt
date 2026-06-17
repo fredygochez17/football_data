@@ -1,4 +1,3 @@
 ACTION ITEMS
 
-> User Friendliness
-    - add capability for normalizing inputs input and data for processing and comparison logic
+- functionality to list all stats of player in a data file (e.g. Shooting | all stats | Raphinha)
